@@ -13,6 +13,7 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { authInterceptorProviders } from'./_helpers/auth.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { authInterceptorProviders } from'./_helpers/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

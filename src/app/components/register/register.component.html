@@ -1,11 +1,90 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+<div class="custom-shape-divider-top-1667546602" style="height: 100%;">
+  <div style="background: rgb(27, 138, 140);">
+    <div style="display: flex;">
+      <img id="profile-img" src="https://i.postimg.cc/fTpN06Ff/1.png" class="profile-img-card" />
+      <h2 style="color:white ;">Kasi Lam </h2>
+    </div>
     <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="form-group">
+      <div style="display: flex;  justify-content: center; width: 100%;">
+        <h3 style="margin-right: 100px ; color: white;">Login</h3>
+        <div>
+          <h3>Signup</h3>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="group-inp">
+        <div class="with">
+          <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <h5>Username</h5>
+            <input type="text" class="inp form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+            maxlength="20" #username="ngModel"  >
+            <div class="alert-danger" *ngIf="username.errors && f.submitted">
+              <div *ngIf="username.errors['required']">Username is required</div>
+              <div *ngIf="username.errors['minlength']">
+                Username must be at least 3 characters
+              </div>
+              <div *ngIf="username.errors['maxlength']">
+                Username must be at most 20 characters
+              </div>
+            </div>
+          </form>
+          <div>
+            <h5>Email</h5>
+            <input type="text" class="inp" name="email" [(ngModel)]="form.email" required email
+            #email="ngModel" >
+                <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                  <div *ngIf="email.errors['required']">Email is required</div>
+                  <div *ngIf="email.errors['email']">
+                    Email must be a valid email address
+                  </div>
+                </div>
+          </div>
+          <div>
+            <h5>Password</h5>
+            <input type="text" class="inp" name="password" [(ngModel)]="form.password" requiredminlength="6"
+            #password="ngModel"  >
+            <div class="alert-danger" *ngIf="password.errors && f.submitted">
+              <div *ngIf="password.errors['required']">Password is required</div>
+              <div *ngIf="password.errors['minlength']">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn inp" >Create Account</button>
+          </div>
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </div>
+      </div>
+      </form>
+  </div>
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill">
+      </path>
+  </svg>
+  
+  
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+</div>
+<!-- <div class="background" style="display: flex"> -->
+ 
+<!-- </div> -->
+
+
+
+
+
+<!-- <div class="col-md-12">
+  <div class="group-inp">
+    <form  >
+      <div class="">
         <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
-          maxlength="20" #username="ngModel" />
+        <input type="text" class=" inp form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+          maxlength="20" #username="ngModel"  width="100%"  />
         <div class="alert-danger" *ngIf="username.errors && f.submitted">
           <div *ngIf="username.errors['required']">Username is required</div>
           <div *ngIf="username.errors['minlength']">
@@ -49,4 +128,4 @@
       Your registration is successful!
     </div>
   </div>
-</div>
+</div> -->
